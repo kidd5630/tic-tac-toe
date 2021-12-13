@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script defer src="app.js"></script>
+</head>
+<body>
+    <div class="start up"> 
+        <div class="gameText">Tic-Tac-Toe</div>
+
+        <div class="1player">
+            <button class="playerBttn"id="one">
+                <img src="one-player.png" class="bttnImg">
+            </button>
+            <div class="bttnText">One Player</div>
+        </div>
+
+        <div class="2player">
+            <button class="playerBttn"id="two">
+                <img src="two-player.png" class="bttnImg">
+            </button>
+            <div class="bttnText">Two Players</div>
+        </div>
+    </div>
+
+    <div class="onePlayer" id="oneName">
+        <input type="text" class="names" id="user-input-one">
+        <button class="nameBttn"id="enter">
+           Enter Name
+        </button>
+    </div>
+    <div class="onePlayerMode" id ="mode">
+        <button class="easy"id="easyMode">
+            Easy
+         </button>
+         <button class="hard"id="hardMode">
+           Hard
+         </button>
+    </div>
+
+    <div class="twoPlayer" id="twoNames">
+        <input type="text" class="names" id="user-input-two">
+       
+        <input type="text" class="names" id="user-input-three">
+        <button class="nameBttn"id="twoEnter">
+            Enter Names
+         </button>
+    </div>
+   
+
+    <div class="gameDisplay">
+
+        <div class="singlePlayer">
+            <span class="displayName"id="x1turn"></span>
+            <span>VS.</span>
+            <span class="displayName"id="o1turn"></span>
+        </div>
+
+
+
+        <div class="doublePlayer">
+            <span class="displayName"id="x2turn"></span>
+            <span>VS.</span>
+            <span class="displayName"id="o2turn"></span>
+        </div>
+
+
+        <div class="gameboard1" id="board">
+            <div class="cell1"></div>
+            <div class="cell1"></div>
+            <div class="cell1"></div>
+            <div class="cell1"></div>
+            <div class="cell1"></div>
+            <div class="cell1"></div>
+            <div class="cell1"></div>
+            <div class="cell1"></div>
+            <div class="cell1"></div>
+        </div>
+
+        <div class="gameboard2" id="board2">
+            <div class="cell2"></div>
+            <div class="cell2"></div>
+            <div class="cell2"></div>
+            <div class="cell2"></div>
+            <div class="cell2"></div>
+            <div class="cell2"></div>
+            <div class="cell2"></div>
+            <div class="cell2"></div>
+            <div class="cell2"></div>
+        </div>
+        <div class="gameboard3" id="board3">
+            <div class="cell3"></div>
+            <div class="cell3"></div>
+            <div class="cell3"></div>
+            <div class="cell3"></div>
+            <div class="cell3"></div>
+            <div class="cell3"></div>
+            <div class="cell3"></div>
+            <div class="cell3"></div>
+            <div class="cell3"></div>
+        </div>
+    </div>
+    <div class="game-over-single" id="game-over-message1">
+        <div class="winner-text1"></div>
+        <button class="end-buttons"id="rematch1">REMATCH!</button>
+        <button class="end-buttons"id="new-game1">NEW GAME!</button>
+    
+    </div>
+    <div class="game-over-double" id="game-over-message2">
+        <div class="winner-text2"></div>
+        <button class="end-buttons"id="rematch2">REMATCH!</button>
+        <button class="end-buttons"id="new-game2">NEW GAME!</button>
+    
+    </div>
+    <div class="game-over-hard" id="game-over-message1hard">
+        <div class="winner-text3"></div>
+        <button class="end-buttons"id="rematch3">REMATCH!</button>
+        <button class="end-buttons"id="new-game3">NEW GAME!</button>
+    
+    </div>
+</body>
+</html>

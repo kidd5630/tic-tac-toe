@@ -1,0 +1,376 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  :root{
+      --cell-size: 140px;
+      --mark-size: calc(var(--cell-size) * .9);
+  }
+  .start{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+  }
+  
+.start.up{
+    display:grid;
+    background-color: black;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    flex-direction: row;
+}
+.gameText{
+    justify-content: center;
+    align-content: center;
+    color: rgb(12, 218, 12);
+    text-decoration:rgb(12, 218, 12) wavy underline;
+    font-size: 5rem;
+    width: 100%;
+}
+  .playerBttn{
+      height:auto;
+      max-height: 100px;
+      width: 100px;
+      border: 3px solid rgb(12, 218, 12);
+      margin-right: 60px;
+      cursor: pointer;
+  }
+  .bttnImg{
+    height:auto;
+    max-height: 90px;
+  }
+  .bttnText{
+    color: rgb(12, 218, 12);;
+    font-size: 20px;
+    font-weight: bold;
+  }
+.onePlayer{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.onePlayer.enter{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    background-color: black;
+    color: rgb(12, 218, 12);
+}
+.onePlayerMode{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.onePlayerMode.option{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    background-color: black;
+    color: rgb(12, 218, 12);
+}
+.twoPlayer{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.twoPlayer.enter{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    background-color: black;
+    color: rgb(12, 218, 12);
+}
+.names{
+    border: 3px solid rgb(12, 218, 12);;
+    background-color: black;
+    color: rgb(12, 218, 12);
+    font-size: 26px;
+    text-align: center;
+    height: 40px;
+    margin: 5px;
+}
+.nameBttn{
+    height: 25px;
+    width: 140px;
+    cursor: pointer;
+    background-color: rgb(12, 218, 12);
+    margin: 5px;
+    font-weight: bold;
+}
+.easy,
+.hard{
+    height: 25px;
+    width: 140px;
+    cursor: pointer;
+    background-color: rgb(12, 218, 12);
+    margin: 5px;
+    font-weight: bold;
+}
+
+.gameboard1,
+.gameboard2,
+.gameboard3{
+    display: none;
+}
+.gameboard1.play,
+.gameboard2.play,
+.gameboard3.play{
+    display: grid;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items:center;
+    grid-template-columns: repeat(3, auto);
+    background-color: black;
+}
+.singlePlayer{
+    display: none;
+}
+.singlePlayer.play{
+background-color: black;
+color: rgb(12, 218, 12);
+display: flex;
+height: 95px;
+justify-content: space-evenly;
+align-items: center;
+font-size: 35px;
+}
+.displayName{
+    text-align: center;
+    width: 800px;
+    color: rgb(12, 218, 12);
+}
+.doublePlayer{
+    display: none;
+}
+.doublePlayer.play{
+    background-color: black;
+    color: rgb(12, 218, 12);
+    display: flex;
+    height: 60px;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 40px;
+}
+.cell1,
+.cell2,
+.cell3{
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: 2px solid rgb(12, 218, 12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    background-color: black;
+    
+}
+.cell1:first-child,
+.cell1:nth-child(2),
+.cell1:nth-child(3),
+.cell2:first-child,
+.cell2:nth-child(2),
+.cell2:nth-child(3),
+.cell3:first-child,
+.cell3:nth-child(2),
+.cell3:nth-child(3){
+    border-top: none;
+}
+.cell1:nth-child(3n + 1),
+.cell2:nth-child(3n + 1),
+.cell3:nth-child(3n + 1){
+    border-left: none;
+}
+.cell1:nth-child(3n + 3),
+.cell2:nth-child(3n + 3),
+.cell3:nth-child(3n + 3){
+    border-right: none;
+}
+.cell1:last-child,
+.cell1:nth-child(7),
+.cell1:nth-child(8),
+.cell2:last-child,
+.cell2:nth-child(7),
+.cell2:nth-child(8),
+.cell3:last-child,
+.cell3:nth-child(7),
+.cell3:nth-child(8){
+    border-bottom: none;
+}
+
+.cell1.x,
+.cell1.o,
+.cell2.x,
+.cell2.o,
+.cell3.x,
+.cell3.o{
+    cursor: no-drop;
+}
+.cell1.x::before,
+.cell1.x::after,
+.cell2.x::before,
+.cell2.x::after,
+.cell3.x::before,
+.cell3.x::after{
+    background-color: rgb(12, 218, 12);
+}
+
+.gameboard1.play.x .cell1:not(.x):not(.o):hover::before,
+.gameboard1.play.x .cell1:not(.x):not(.o):hover::after,
+.gameboard2.play.x .cell2:not(.x):not(.o):hover::before,
+.gameboard2.play.x .cell2:not(.x):not(.o):hover::after,
+.gameboard3.play.x .cell2:not(.x):not(.o):hover::before,
+.gameboard3.play.x .cell2:not(.x):not(.o):hover::after{
+    background-color: rgb(115, 187, 115);
+}
+
+.cell1.x::before,
+.cell1.x::after,
+.gameboard1.play.x .cell1:not(.x):not(.o):hover::before,
+.gameboard1.play.x .cell1:not(.x):not(.o):hover::after,
+.cell2.x::before,
+.cell2.x::after,
+.gameboard2.play.x .cell2:not(.x):not(.o):hover::before,
+.gameboard2.play.x .cell2:not(.x):not(.o):hover::after,
+.cell3.x::before,
+.cell3.x::after,
+.gameboard3.play.x .cell3:not(.x):not(.o):hover::before,
+.gameboard3.play.x .cell3:not(.x):not(.o):hover::after{
+    content: '';
+    width: calc(var(--mark-size) * .15);
+    height: var(--mark-size);
+    position: absolute;
+}
+.cell1.x::before,
+.gameboard1.play.x .cell1:not(.x):not(.o):hover::before,
+.cell2.x::before,
+.gameboard2.play.x .cell2:not(.x):not(.o):hover::before,
+.cell3.x::before,
+.gameboard3.play.x .cell3:not(.x):not(.o):hover::before{
+    transform: rotate(45deg);
+}
+.cell1.x::after,
+.gameboard1.play.x .cell1:not(.x):not(.o):hover::after,
+.cell2.x::after,
+.gameboard2.play.x .cell2:not(.x):not(.o):hover::after,
+.cell3.x::after,
+.gameboard3.play.x .cell3:not(.x):not(.o):hover::after{
+    transform: rotate(-45deg);
+}
+.cell1.o::before,
+.cell1.o::after,
+.cell2.o::before,
+.cell2.o::after,
+.cell3.o::before,
+.cell3.o::after{
+    background-color: rgb(12, 218, 12);
+}
+.gameboard1.play.o .cell1:not(.x):not(.o):hover::before,
+.gameboard1.play.o .cell1:not(.x):not(.o):hover::after,
+.gameboard2.play.o .cell2:not(.x):not(.o):hover::before,
+.gameboard2.play.o .cell2:not(.x):not(.o):hover::after,
+.gameboard3.play.o .cell3:not(.x):not(.o):hover::before,
+.gameboard3.play.o .cell3:not(.x):not(.o):hover::after{
+    background-color: rgb(115, 187, 115);
+}
+.cell1.o::before,
+.cell1.o::after,
+.gameboard1.play.o .cell1:not(.x):not(.o):hover::before,
+.gameboard1.play.o .cell1:not(.x):not(.o):hover::after,
+.cell2.o::before,
+.cell2.o::after,
+.gameboard2.play.o .cell2:not(.x):not(.o):hover::before,
+.gameboard2.play.o .cell2:not(.x):not(.o):hover::after,
+.cell3.o::before,
+.cell3.o::after,
+.gameboard3.play.o .cell3:not(.x):not(.o):hover::before,
+.gameboard3.play.o .cell3:not(.x):not(.o):hover::after{
+    content: '';
+    width: calc(var(--mark-size) * .9);
+    height: calc(var(--mark-size) * .9);
+    position: absolute;
+    border-radius: 50%;
+}
+
+.cell1.o::after,
+.gameboard1.play.o .cell1:not(.x):not(.o):hover::after,
+.cell2.o::after,
+.gameboard2.play.o .cell2:not(.x):not(.o):hover::after,
+.cell3.o::after,
+.gameboard3.play.o .cell3:not(.x):not(.o):hover::after{
+    width: calc(var(--mark-size) * .6);
+    height: calc(var(--mark-size) * .6);
+    background-color: black;
+}
+.end-buttons{
+    background-color: black;
+    color: rgb(12, 218, 12);
+    height: 50px;
+    width: 200px;
+    border: 2px solid rgb(12, 218, 12);
+    margin: 15px;
+    font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+    }
+.game-over-single,
+.game-over-double,
+.game-over-hard {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.game-over-single.show,
+.game-over-double.show,
+.game-over-hard.show{
+    display: flex;
+}
+.winner-text1,
+.winner-text2,
+.winner-text3{
+    color: rgb(12, 218, 12);
+    text-decoration: underline;
+    font-size: 50px;
+    font-weight: bold;
+    font-style: oblique;
+}
